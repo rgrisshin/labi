@@ -1,0 +1,23 @@
+CREATE TABLE departament
+(
+	id SERIAL PRIMARY KEY,
+	name varchar(150) NOT NULL,
+	decanat varchar(300) NOT NULL
+);
+
+CREATE TABLE student_group
+(
+	id SERIAL PRIMARY KEY,
+	name varchar(150) NOT NULL,
+	departament varchar(300) NOT NULL,
+	fk_student_group integer REFERENCES departament (id)
+);
+
+CREATE TABLE student
+(
+	id SERIAL PRIMARY KEY,
+	name varchar(150) NOT NULL,
+	passport integer NOT NULL,
+	student_group varchar(300) NOT NULL,
+	fk_student integer REFERENCES student_group (id)
+);
